@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Cores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .color-input {
+            margin: 10px;
+        }
+        .color-box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualizador de Cores</h1>
+    <p>Insira até 5 cores em formato hexadecimal:</p>
+
+    <div class="color-input">
+        <input type="text" id="color1" placeholder="Digite uma cor">
+        <button onclick="updateColor(1)">Mostrar Cor</button>
+    </div>
+    <div class="color-input">
+        <input type="text" id="color2" placeholder="Digite uma cor">
+        <button onclick="updateColor(2)">Mostrar Cor</button>
+    </div>
+    <div class="color-input">
+        <input type="text" id="color3" placeholder="Digite uma cor">
+        <button onclick="updateColor(3)">Mostrar Cor</button>
+    </div>
+    <div class="color-input">
+        <input type="text" id="color4" placeholder="Digite uma cor">
+        <button onclick="updateColor(4)">Mostrar Cor</button>
+    </div>
+    <div class="color-input">
+        <input type="text" id="color5" placeholder="Digite uma cor">
+        <button onclick="updateColor(5)">Mostrar Cor</button>
+    </div>
+
+    <div class="color-box" id="box1"></div>
+    <div class="color-box" id="box2"></div>
+    <div class="color-box" id="box3"></div>
+    <div class="color-box" id="box4"></div>
+    <div class="color-box" id="box5"></div>
+
+    <script>
+        function updateColor(boxNumber) {
+            const colorInput = document.getElementById(`color${boxNumber}`).value;
+            const colorBox = document.getElementById(`box${boxNumber}`);
+            
+            if (colorInput.match(/^#[0-9A-Fa-f]{6}$/)) {
+                colorBox.style.backgroundColor = colorInput;
+            } else {
+                alert("Por favor, insira uma cor válida em formato hexadecimal, por exemplo: #RRGGBB");
+            }
+        }
+    </script>
+</body>
+</html>
